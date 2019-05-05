@@ -1,33 +1,43 @@
 <ion-header no-border>
   <ion-toolbar>
-  <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+    <ion-buttons slot="end">
+        <div id="logo-wrap">
+            <img src="../../assets/toucan.PNG" alt="Au Toucan">
+        </div>
     </ion-buttons>
-    <div id="logo">
-        <img src="../../assets/toucan.PNG" alt="Au Toucan">
-    </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-grid fixed class="grid">
-  <ion-row class="grid-row-size ion-text-center">
-    <ion-col>
+<ion-grid>
+  <ion-row class="ion-align-items-center">
+    <ion-col size="1">
+        <ion-menu-button></ion-menu-button>
+    </ion-col>
+    <ion-col size="7">
       <div>
-          <ion-text color="light">
-              <h1>Bienvenue à Noirmoutier</h1>
-          </ion-text>
+        <img src="../../assets/noirmoutier_from_iss.jpg" alt="">
       </div>
     </ion-col>
-  </ion-row>
-  <ion-row class="ion-text-center">
-    <ion-col>
-          <ion-button fill="outline" color="light" size="large">
-            Réserver
-          </ion-button>
+    <ion-col size="4">
+      <ion-row  class="ion-text-center ion-justify-content-center">
+          <div>
+              <ion-text color="dark">
+                  <h1>Bienvenue à Noirmoutier</h1>
+              </ion-text>
+          </div>
+      </ion-row>
+      <ion-row class="ion-text-center">
+          <ion-col>
+                <ion-button fill="outline" color="dark">
+                  Réserver
+                </ion-button>
+          </ion-col>
+          <ion-col>
+              <ion-button fill="outline" color="dark">Découvrir la maison</ion-button>
+          </ion-col>
+        </ion-row>
     </ion-col>
-    <ion-col>
-        <ion-button fill="outline" color="light" size="large">Découvrir la maison</ion-button>
-    </ion-col>
   </ion-row>
+
 </ion-grid>
 
