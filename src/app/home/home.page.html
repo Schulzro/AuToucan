@@ -1,43 +1,53 @@
-<ion-header no-border>
+<ion-header no-border class="header">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-buttons slot="end">
-        <div id="logo-wrap">
-            <img src="../../assets/toucan.PNG" alt="Au Toucan">
-        </div>
+      <ion-text>Le Toucan</ion-text>
+      <div id="logo-wrap">
+        <img src="../../assets/toucan.PNG" alt="Au Toucan">
+      </div>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-grid>
-  <ion-row class="ion-align-items-center">
-    <ion-col size="1">
-        <ion-menu-button></ion-menu-button>
+<ion-grid no-padding>
+  <ion-row class="full-height">
+    <ion-col class="menu-column vertical-align" size-sm="1">
+      <ion-menu-button size="large"></ion-menu-button>
     </ion-col>
-    <ion-col size="7">
+    <ion-col class="photo-column" size="12" size-md="7">
       <div>
         <img src="../../assets/noirmoutier_from_iss.jpg" alt="">
       </div>
     </ion-col>
-    <ion-col size="4">
-      <ion-row  class="ion-text-center ion-justify-content-center">
-          <div>
-              <ion-text color="dark">
-                  <h1>Bienvenue à Noirmoutier</h1>
-              </ion-text>
-          </div>
+    <ion-col size="12" size-md="4">
+      <ion-row class="ion-justify-content-end ion-align-items-center display-logo">
+        <ion-text>Le Toucan</ion-text>
+        <div id="logo-wrap">
+          <img src="../../assets/toucan.PNG" alt="Au Toucan">
+        </div>
       </ion-row>
-      <ion-row class="ion-text-center">
-          <ion-col>
-                <ion-button fill="outline" color="dark">
-                  Réserver
-                </ion-button>
-          </ion-col>
-          <ion-col>
-              <ion-button fill="outline" color="dark">Découvrir la maison</ion-button>
-          </ion-col>
+      <ion-col class="actions-column flex-no-wrap">
+        <ion-row class="ion-justify-content-center">
+          <div class="ion-text-center">
+            <ion-text color="dark">
+              <h1>Bienvenue à Noirmoutier</h1>
+            </ion-text>
+          </div>
+          <ion-row class="full-width">
+            <ion-col class="ion-text-center">
+              <ion-button fill="outline" color="dark">
+                Réserver
+              </ion-button>
+            </ion-col>
+            <ion-col class="ion-text-center">
+              <ion-button fill="outline" color="dark">Voir la maison</ion-button>
+            </ion-col>
+          </ion-row>
         </ion-row>
+      </ion-col>
     </ion-col>
   </ion-row>
-
 </ion-grid>
-
