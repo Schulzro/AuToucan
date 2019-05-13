@@ -11,7 +11,7 @@ import { NONE_TYPE } from '@angular/compiler/src/output/output_ast';
     trigger('insertActionButtons', [
       transition(':enter', [
         style({ opacity: 0 }),
-        animate('2s', keyframes([
+        animate('1s 2s', keyframes([
           style({ opacity: 0 }), // 0%
           style({ opacity: 0.4 }), // 33%
           style({ opacity: 0.8 }), // 66%
@@ -41,7 +41,7 @@ import { NONE_TYPE } from '@angular/compiler/src/output/output_ast';
 })
 export class HomePage implements OnInit {
   startAnimation = false;
-  typeWriterOptions = {speed: 60, timeout: 1000, hideCursor: true};
+  typeWriterOptions = {speed: 40, timeout: 1000, hideCursor: true};
 
   ngOnInit() {
     this.startAnimation = true;
