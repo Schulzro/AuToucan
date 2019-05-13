@@ -18,7 +18,7 @@
       <ion-menu-button size="large"></ion-menu-button>
     </ion-col>
     <ion-col class="photo-column" size="12" size-md="7">
-      <div>
+      <div class="photo-container" @insertfromBottom>
         <img src="../../assets/noirmoutier_from_iss.jpg" alt="">
       </div>
     </ion-col>
@@ -31,13 +31,13 @@
       </ion-row>
       <ion-col class="actions-column flex-no-wrap">
         <ion-row class="ion-justify-content-center">
-          <div class="ion-text-center">
+          <div class="ion-text-center" @insertActionButtons>
             <ion-text color="dark">
               <h1>Bienvenue à Noirmoutier</h1>
             </ion-text>
           </div>
-          <ion-row class="full-width">
-            <ion-col class="ion-text-center">
+          <ion-row class="full-width" @insertActionButtons>
+            <ion-col  class="ion-text-center">
               <ion-button fill="outline" color="dark">
                 Réserver
               </ion-button>

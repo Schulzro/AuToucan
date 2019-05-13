@@ -15,6 +15,7 @@
     align-items: center;
 }
 
+
 .menu-column {
     display: flex;
     height: 100%;
@@ -47,6 +48,10 @@
 @media screen and (max-width: 768px)  {
     .menu-column {
         display: none;
+    }
+
+    .full-height {
+        height: 85%;
     }
 
     .header {
