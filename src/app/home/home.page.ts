@@ -27,7 +27,7 @@ import { NONE_TYPE } from '@angular/compiler/src/output/output_ast';
     ]),
     trigger('insertfromBottom', [
       transition(':enter', [
-        style({ 
+        style({
           transform: 'translateY(30%)',
           opacity: 0.2
         }),
@@ -41,6 +41,8 @@ import { NONE_TYPE } from '@angular/compiler/src/output/output_ast';
 })
 export class HomePage implements OnInit {
   startAnimation = false;
+  typeWriterOptions = {speed: 60, timeout: 1000, hideCursor: true};
+
   ngOnInit() {
     this.startAnimation = true;
   }

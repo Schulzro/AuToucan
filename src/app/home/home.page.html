@@ -31,9 +31,9 @@
       </ion-row>
       <ion-col class="actions-column flex-no-wrap">
         <ion-row class="ion-justify-content-center">
-          <div class="ion-text-center" @insertActionButtons>
+          <div class="ion-text-center">
             <ion-text color="dark">
-              <h1>Bienvenue à Noirmoutier</h1>
+              <h1 [ng-typed]="typeWriterOptions" >Bienvenue à Noirmoutier</h1>
             </ion-text>
           </div>
           <ion-row class="full-width" @insertActionButtons>
