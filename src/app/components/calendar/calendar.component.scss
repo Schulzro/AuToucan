@@ -1,0 +1,43 @@
+.week-days {
+    list-style: none;
+    margin-left: 0;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    color: #bfbdbd;
+  }
+
+  .bold-text {
+    font-weight: bold;
+    color: #3f3c3c;
+  }
+  
+  .big-text {
+    font-size: 20px;
+  }
+
+  
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    max-width: 1024px;
+    width: 100%;
+    padding: 0;
+  }
+  
+  .calendar-day {
+    margin-left: 0;
+    margin-right: 0;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+  
+  #mobile-calendar {
+    width: 100%;
+  }
+  
+  .today-calendar {
+    color: var(--ion-color-primary);
+  }
+  

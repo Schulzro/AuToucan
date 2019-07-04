@@ -1,24 +1,12 @@
-<ion-header no-border class="header">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-buttons slot="end">
-      <ion-text>Le Toucan</ion-text>
-      <div id="logo-wrap">
-        <img src="../../assets/toucan.PNG" alt="Au Toucan">
-      </div>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<app-main-toolbar></app-main-toolbar>
 
-<ion-grid no-padding>
+<ion-grid no-padding class="grid">
   <ion-row class="full-height">
     <ion-col class="menu-column vertical-align" size-sm="1">
       <ion-menu-button size="large"></ion-menu-button>
     </ion-col>
     <ion-col class="photo-column" size="12" size-md="7">
-      <div class="photo-container" @insertfromBottom>
+      <div @insertfromBottom>
         <img src="../../assets/noirmoutier_from_iss.jpg" alt="">
       </div>
     </ion-col>
@@ -33,12 +21,12 @@
         <ion-row class="ion-justify-content-center">
           <div class="ion-text-center">
             <ion-text color="dark">
-              <h1 [ng-typed]="typeWriterOptions" >Bienvenue à Noirmoutier</h1>
+              <h1 [ng-typed]="typeWriterOptions">Bienvenue à Noirmoutier</h1>
             </ion-text>
           </div>
           <ion-row class="full-width" @insertActionButtons>
-            <ion-col  class="ion-text-center">
-              <ion-button fill="outline" color="dark">
+            <ion-col class="ion-text-center">
+              <ion-button fill="outline" color="dark" [routerLink]="['/book']">
                 Réserver
               </ion-button>
             </ion-col>

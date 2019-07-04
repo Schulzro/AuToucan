@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgTypedModule } from 'ng-typed';
 import { HomePage } from './home.page';
+import { MainToolbarComponent } from '../components/main-toolbar/main-toolbar.component';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   imports: [
@@ -12,6 +14,7 @@ import { HomePage } from './home.page';
     FormsModule,
     IonicModule,
     NgTypedModule,
+    ComponentsModule,
     RouterModule.forChild([
       {
         path: '',
@@ -19,6 +22,8 @@ import { HomePage } from './home.page';
       }
     ])
   ],
-  declarations: [HomePage]
+  declarations: [
+    HomePage,
+  ]
 })
 export class HomePageModule {}

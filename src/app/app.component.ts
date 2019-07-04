@@ -3,6 +3,7 @@ import { MenuController } from '@ionic/angular';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private menuController: MenuController,
+    private router: Router,
   ) {
     this.initializeApp();
   }
@@ -29,5 +31,10 @@ export class AppComponent {
 
   closeMenu():void {
     this.menuController.close('myMenu');
+  }
+
+  navigateTo(path: string):void {
+    this.router.navigate([`/${path}`]);
+    this.closeMenu();
   }
 }

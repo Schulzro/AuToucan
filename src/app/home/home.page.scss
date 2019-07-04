@@ -1,8 +1,3 @@
-#logo-wrap {
-    width: 80px;
-    height: auto;
-}
-
 .full-height {
     height: 100%;
 }
@@ -15,6 +10,10 @@
     align-items: center;
 }
 
+.grid {
+    margin-left: 0;
+    margin-right: 0;
+}
 
 .menu-column {
     display: flex;
@@ -41,10 +40,6 @@
     display: flex;
 }
 
-.header {
-    display: none;
-}
-
 @media screen and (max-width: 768px)  {
     .menu-column {
         display: none;
@@ -52,10 +47,6 @@
 
     .full-height {
         height: 85%;
-    }
-
-    .header {
-        display: block;
     }
 
     .display-logo {
