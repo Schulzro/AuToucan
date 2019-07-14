@@ -1,0 +1,109 @@
+.full-height {
+  height: 100%;
+}
+
+.grid {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.calendar-row {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.calendar-column {
+  border: 1px solid #ddd9d9;
+  border-radius: 10%;
+}
+
+.vertical-align {
+  align-items: center;
+}
+
+.menu-column {
+  display: flex;
+  height: 100%;
+}
+
+.mobile-menu-button-position {
+  display: none;
+}
+
+.change-month {
+    display: flex;
+    align-content: flex-end !important;
+}
+
+.display-logo {
+  display: flex;
+}
+
+#logo-wrap {
+  width: 80px;
+  height: auto;
+}
+
+.photo-column {
+  display: flex;
+  padding-right: 16px;
+}
+
+.danger-message {
+  background-color: #fcd1d1;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+}
+
+.slide-flex-prop {
+  display: flex;
+  flex-direction: column;
+}
+
+.suiv-margin-left{
+  margin-left: 1em;
+}
+
+.calendar {
+  width: 100%;
+}
+
+.validation {
+  width: 100%;
+  margin-bottom: 2em;
+}
+
+.slide-component-width {
+  width: 80%;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-column {
+    display: none;
+  }
+
+  .photo-column {
+    display: flex;
+    background-image: url("../../assets/port.jpeg");
+    height: 30%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-right: 0px;
+  }
+
+  #photo-column-picture {
+    display: none;
+  }
+
+  .mobile-menu-button-position {
+    display: block;
+    position: relative;
+    top: -30%;
+    left: 5%;
+  }
+
+  .display-logo {
+    display: none;
+  }
+}

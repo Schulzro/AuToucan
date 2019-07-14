@@ -1,9 +1,27 @@
-.my-custom-menu {
+.menu-full-width {
     --width: 100%;
+}
+
+.grid-vertical-align {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.full-width {
+    width: 100%;
 }
 
 #closeMenuButton {
     --box-shadow: none;
     --background: var(--ion-color-primary-contrast);
     --color: var(--ion-color-dark);
+}
+
+@media screen and (max-width: 768px)  {
+    .grid-vertical-align {
+        height: auto;
+        display: flex;
+        align-items: flex-start;
+    }
 }
