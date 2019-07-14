@@ -1,26 +1,26 @@
 <ion-app>
-    <ion-menu side="start" menuId="myMenu" class="menu-full-width">
-        <ion-content>
-          <ion-grid class="grid-vertical-align">
-            <ion-row class="full-width ion-align-items-center">
-              <ion-col size-md="1" size="12">            
-                <ion-button (click)="closeMenu()" id="closeMenuButton">
-                  <ion-icon slot="icon-only" name="close" ></ion-icon>
-              </ion-button>
-            </ion-col>
-              <ion-col>
-                  <ion-list>
-                      <ion-item button="true" (click)="navigateTo('home')">Accueil</ion-item>
-                      <ion-item button="true" (click)="navigateTo('book')">Réserver</ion-item>
-                      <ion-item>Menu Item</ion-item>
-                      <ion-item>Menu Item</ion-item>
-                      <ion-item>Menu Item</ion-item>
-                    </ion-list>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-content>
-      </ion-menu>
-      
+  <ion-menu side="start" menuId="myMenu" class="menu-full-width">
+    <ion-content>
+      <ion-grid class="grid-vertical-align">
+        <ion-row class="full-width ion-align-items-center">
+          <ion-col size-md="1" size="12">
+            <ion-button (click)="closeMenu()" id="closeMenuButton">
+              <ion-icon slot="icon-only" name="close"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-list>
+              <ion-item button="true" (click)="navigateTo('home')">Accueil</ion-item>
+              <ion-item button="true" (click)="navigateTo('book')">Réserver</ion-item>
+              <ion-item button="true">Voir la maison</ion-item>
+              <ion-item button="true">Bon Plans Noirmoutier</ion-item>
+              <ion-item button="true" (click)="navigateTo('my-booking')">Ma réservation</ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-content>
+  </ion-menu>
+
   <ion-router-outlet main></ion-router-outlet>
 </ion-app>

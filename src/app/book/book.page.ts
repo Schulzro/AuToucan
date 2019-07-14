@@ -1,46 +1,40 @@
 import {
   Component,
   OnInit,
-  AfterViewInit,
   ViewChild
 } from '@angular/core';
-import * as moment from 'moment';
-import { CalendarService } from '../services/calendar.service';
 import { BookingsService } from '../services/bookings.service';
 import { Booking } from '../models/booking.model';
 import { IonSlides } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book',
   templateUrl: './book.page.html',
   styleUrls: ['./book.page.scss'],
 })
-export class BookPage implements OnInit, AfterViewInit {
+export class BookPage implements OnInit {
 
 
   bookings: Booking[] = [];
   canBook = true;
-  booking_start_date: moment.Moment;
-  bookign_end_date: moment.Moment;
   bookingFailure = false;
+  bookingCreated: Booking;
+  booking: Booking;
 
   @ViewChild('bookingSlider') bookingSlider: IonSlides;
 
 
 
-  constructor(private bookingService: BookingsService, private calendarService: CalendarService) {
-    this.bookingService.booking$.subscribe(booking => {
-      this.booking_start_date = booking.booking_start_date;
-      this.bookign_end_date = booking.booking_end_date;
-    });
+  constructor(
+    private bookingService: BookingsService, 
+    private router: Router) {
+    this.bookingService.booking$.subscribe(booking => this.booking = booking);
    }
 
   ngOnInit() {
-    this.getBookings();
-  }
-
-  ngAfterViewInit(): void {
     this.bookingSlider.lockSwipes(true);
+    this.getBookings();
   }
 
   onBook(canBook: boolean): void {
@@ -61,8 +55,15 @@ export class BookPage implements OnInit, AfterViewInit {
 
   book() {
     this.bookingService.book().toPromise()
-    .then(() => this.swipeRight())
+    .then(booking => {
+      this.bookingCreated = booking;
+      this.swipeRight();
+    })
     .catch(() => this.bookingFailure = true);
+  }
+
+  goToHomePage() {
+    this.router.navigate(['/home']).then(() => this.bookingSlider.slideTo(0));
   }
 
   async getBookings(): Promise<void | Booking[]> {

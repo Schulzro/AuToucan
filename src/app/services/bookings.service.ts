@@ -31,6 +31,7 @@ export class BookingsService {
     booking_amount: 0,
     created_at:  null,
     updated_at:  null,
+    reference: null
   });
   private _bookingStart = new Subject<moment.Moment>();
   private _bookingEnd = new Subject<moment.Moment>();

@@ -22,7 +22,7 @@
         <ion-slide class="slide-flex-prop">
           <app-calendar class="calendar" [bookings]="bookings" (canBook)="onBook($event)"></app-calendar>
           <div class="validation">
-            <ion-button *ngIf="canBook;else notAvailableMessage" [disabled]="!(booking_start_date || booking_end_date)"
+            <ion-button *ngIf="canBook;else notAvailableMessage" [disabled]="!(booking.booking_start_date || booking.booking_end_date)"
               id="validationButton" (click)="swipeRight()">SUIV</ion-button>
             <ng-template #notAvailableMessage>
               <div class="danger-message">
@@ -36,14 +36,14 @@
           <app-profileformbooking class="slide-component-width ion-margin-top"></app-profileformbooking>
           <div>
               <ion-button fill="outline" class="ion-margin-right" (click)="swipeLeft()">PREV</ion-button>
-              <ion-button class="suiv-margin-left" (click)="swipeRight()">SUIV</ion-button>
+              <ion-button class="suiv-margin-left" [disabled]="!(booking.name && booking.number_of_persons)" (click)="swipeRight()">SUIV</ion-button>
           </div>
         </ion-slide>
         <ion-slide class="slide-flex-prop">
             <app-contactformbooking class="slide-component-width ion-margin-top"></app-contactformbooking>  
           <div>
               <ion-button fill="outline" class="ion-margin-right" (click)="swipeLeft()">PREV</ion-button>
-              <ion-button class="suiv-margin-left" (click)="swipeRight()">SUIV</ion-button>
+              <ion-button class="suiv-margin-left" [disabled]="!(booking.phone_number && booking.email)" (click)="swipeRight()">SUIV</ion-button>
           </div>
         </ion-slide>
         <ion-slide class="slide-flex-prop">
@@ -57,9 +57,9 @@
           </div>
         </ion-slide>
         <ion-slide class="slide-flex-prop">
-          <app-booking-success class="slide-component-width ion-margin-top"></app-booking-success>
+          <app-booking-success class="slide-component-width ion-margin-top" [newBooking]="bookingCreated"></app-booking-success>
           <div>
-            <ion-button [routerLink]="['/home']"> Aller à l'accueil</ion-button>
+            <ion-button (click)="goToHomePage()"> Aller à l'accueil</ion-button>
           </div>
         </ion-slide>
       </ion-slides>

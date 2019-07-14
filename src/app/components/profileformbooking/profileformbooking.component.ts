@@ -10,20 +10,23 @@ import { BookingsService } from 'src/app/services/bookings.service';
 })
 export class ProfileformbookingComponent implements OnInit {
 
-  personNumber: number;
-  name = '';
-  comments = '';
+  model = {
+    name: '',
+    comments: '',
+    number_of_persons: null
+  };
+ 
 
   constructor(private pickerCtrl: PickerController, private bookingService: BookingsService) { }
 
   ngOnInit() {}
 
   saveName() {
-    this.bookingService.name = this.name;
+    this.bookingService.name = this.model.name;
   }
 
   saveComments() {
-    this.bookingService.comments = this.comments;
+    this.bookingService.comments = this.model.name;
   }
 
   async showPicker() {
@@ -35,7 +38,7 @@ export class ProfileformbookingComponent implements OnInit {
       ],
       columns: [
         {
-          name: 'personNumber',
+          name: 'number_of_persons',
           options: [
             { text: '1', value: 1 },
             { text: '2', value: 2 },
@@ -54,9 +57,9 @@ export class ProfileformbookingComponent implements OnInit {
     const picker = await this.pickerCtrl.create(opts);
     picker.present();
     picker.onDidDismiss().then(async data => {
-      const col = await picker.getColumn('personNumber');
-      this.personNumber = col.options[col.selectedIndex].value;
-      this.bookingService.number_of_persons = this.personNumber;
+      const col = await picker.getColumn('number_of_persons');
+      this.model.number_of_persons = col.options[col.selectedIndex].value;
+      this.bookingService.number_of_persons = this.model.number_of_persons;
     });
   }
 

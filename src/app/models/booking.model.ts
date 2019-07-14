@@ -12,4 +12,5 @@ export interface Booking {
     booking_amount: number;
     created_at:  moment.Moment;
     updated_at:  moment.Moment;
+    reference: string;
 }
