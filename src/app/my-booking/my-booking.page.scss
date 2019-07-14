@@ -1,0 +1,75 @@
+.full-height {
+    height: 100%;
+  }
+  
+  .grid {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .photo-column {
+    display: flex;
+    padding-right: 16px;
+  }
+  
+  .vertical-align {
+    align-items: center;
+  }
+  
+  .menu-column {
+    display: flex;
+    height: 100%;
+  }
+  
+  .mobile-menu-button-position {
+    display: none;
+  }
+  
+  .display-logo {
+    display: flex;
+  }
+  
+  #logo-wrap {
+    width: 80px;
+    height: auto;
+  }
+
+  .reference-input {
+    border-width: 1px;
+    border-color: #ddd9d9;
+    border-style: solid;
+    width: 80%;
+    margin: 0 auto 1em;
+  }
+
+  @media screen and (max-width: 768px) {
+    .menu-column {
+      display: none;
+    }
+  
+    .photo-column {
+      display: flex;
+      background-image: url("../../assets/shore.jpg");
+      height: 30%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding-right: 0px;
+    }
+  
+    #photo-column-picture {
+      display: none;
+    }
+  
+    .mobile-menu-button-position {
+      display: block;
+      position: relative;
+      top: -30%;
+      left: 5%;
+    }
+  
+    .display-logo {
+      display: none;
+    }
+  }
+  

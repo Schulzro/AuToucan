@@ -1,22 +1,70 @@
-#logo {
-    width: 5%;
-    height: auto;
-    margin: 0 auto;
+.full-height {
+    height: 100%;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.vertical-align {
+    align-items: center;
 }
 
 .grid {
-    background-image: url(../../assets/noirmoutier_from_iss.jpg);
-    background-size: cover;
-    background-position: center center;
-    max-width: 100%;
-    background-repeat: no-repeat; 
-    margin-bottom: 1%;
-    margin-top: 2%;
+    margin-left: 0;
+    margin-right: 0;
 }
 
-.grid-row-size {
-    height: 85%;
+.menu-column {
+    display: flex;
+    height: 100%;
 }
 
+.photo-column {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.actions-column {
+    height: 80%;
+    display: flex;
+    align-items: center;
+}
+
+.flex-no-wrap {
+    flex-wrap: nowrap;
+}
+
+.display-logo {
+    display: flex;
+}
+
+@media screen and (max-width: 768px)  {
+    .menu-column {
+        display: none;
+    }
+
+    .full-height {
+        height: 85%;
+    }
+
+    .display-logo {
+        display: none;
+    }
+
+    .photo-column {
+        height: auto;
+        display: flex;
+        align-items: center;
+        padding-inline-start: 0;
+        padding-inline-end: 0;
+    }
+
+    .actions-column {
+        display: flex;
+        align-items: center;
+    }
+}
 
 

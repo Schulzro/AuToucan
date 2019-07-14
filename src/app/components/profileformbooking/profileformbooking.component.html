@@ -1,0 +1,24 @@
+<form #profileForm=ngForm>
+  <ion-list class="profile-list">
+    <ion-list-header>
+      <ion-label>Profil</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label position="stacked">Votre Nom <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-input type="text" name="name" [(ngModel)]="model.name" (ionBlur)="saveName()" required #name="ngModel"></ion-input>
+    </ion-item>
+    <ion-item class="picker-margin">
+      <ion-button fill="clear" (click)="showPicker()">Nombre de pers. <ion-text color="danger">*</ion-text>
+      </ion-button>
+      <div *ngIf="model.number_of_persons">
+        <ion-text>{{model.number_of_persons}} X</ion-text>
+        <ion-icon name="man"></ion-icon>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Commentaires</ion-label>
+      <ion-textarea name="comments" [(ngModel)]="model.comments" (ionBlur)="saveComments()"></ion-textarea>
+    </ion-item>
+  </ion-list>
+</form>

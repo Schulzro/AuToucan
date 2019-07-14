@@ -1,0 +1,41 @@
+<ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <div class="ion-text-center bold-text">
+        <ion-text> Combien de temps voulez-vous rester ? </ion-text>
+      </div>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+      <ion-col>
+        <ion-text color="dark bold-text big-text">{{ monthName }} {{ year }}</ion-text>
+      </ion-col>
+      <ion-col>
+        <ion-button fill="clear" (click)="pastMonth()">
+          <ion-icon slot="icon-only" mode="ios" name="arrow-dropleft"></ion-icon>
+        </ion-button>
+        <ion-button fill="clear" (click)="futureMonth()" class="ion-no-padding">
+          <ion-icon slot="icon-only" mode="ios" name="arrow-dropright"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <div id="mobile-calendar">
+        <ul class="calendar-grid">
+          <li class="week-days">L</li>
+          <li class="week-days">M</li>
+          <li class="week-days">M</li>
+          <li class="week-days">J</li>
+          <li class="week-days">V</li>
+          <li class="week-days">S</li>
+          <li class="week-days">D</li>
+        </ul>
+        <ul class="calendar-grid">
+          <ion-button #calendarDay size="small" fill="clear" *ngFor="let day of days; let i = index"
+            appCalendarStart appCalendarSelectDay [calendarStartDayNumber]="calendarStartDateNumber"
+            [calendarIndex]="i" class="calendar-day bold-text" [ngClass]="{'today-calendar': isToday(day)}"
+            (click)="selectDays(day)">
+            {{ day.format('D') }}
+          </ion-button>
+        </ul>
+      </div>
+    </ion-row>
+  </ion-grid>

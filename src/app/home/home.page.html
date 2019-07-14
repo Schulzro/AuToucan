@@ -1,33 +1,41 @@
-<ion-header no-border>
-  <ion-toolbar>
-  <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <div id="logo">
-        <img src="../../assets/toucan.PNG" alt="Au Toucan">
-    </div>
-  </ion-toolbar>
-</ion-header>
+<app-main-toolbar></app-main-toolbar>
 
-<ion-grid fixed class="grid">
-  <ion-row class="grid-row-size ion-text-center">
-    <ion-col>
-      <div>
-          <ion-text color="light">
-              <h1>Bienvenue à Noirmoutier</h1>
-          </ion-text>
+<ion-grid no-padding class="grid">
+  <ion-row class="full-height">
+    <ion-col class="menu-column vertical-align" size-sm="1">
+      <ion-menu-button size="large"></ion-menu-button>
+    </ion-col>
+    <ion-col class="photo-column" size="12" size-md="7">
+      <div @insertfromBottom>
+        <img src="../../assets/noirmoutier_from_iss.jpg" alt="">
       </div>
     </ion-col>
-  </ion-row>
-  <ion-row class="ion-text-center">
-    <ion-col>
-          <ion-button fill="outline" color="light" size="large">
-            Réserver
-          </ion-button>
-    </ion-col>
-    <ion-col>
-        <ion-button fill="outline" color="light" size="large">Découvrir la maison</ion-button>
+    <ion-col size="12" size-md="4">
+      <ion-row class="ion-justify-content-end ion-align-items-center display-logo">
+        <ion-text>Le Toucan</ion-text>
+        <div id="logo-wrap">
+          <img src="../../assets/toucan.PNG" alt="Au Toucan">
+        </div>
+      </ion-row>
+      <ion-col class="actions-column flex-no-wrap">
+        <ion-row class="ion-justify-content-center">
+          <div class="ion-text-center">
+            <ion-text color="dark">
+              <h1 [ng-typed]="typeWriterOptions">Bienvenue à Noirmoutier</h1>
+            </ion-text>
+          </div>
+          <ion-row class="full-width" @insertActionButtons>
+            <ion-col class="ion-text-center">
+              <ion-button fill="outline" color="dark" [routerLink]="['/book']">
+                Réserver
+              </ion-button>
+            </ion-col>
+            <ion-col class="ion-text-center">
+              <ion-button fill="outline" color="dark">Voir la maison</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-row>
+      </ion-col>
     </ion-col>
   </ion-row>
 </ion-grid>
-
