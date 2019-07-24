@@ -3,7 +3,7 @@
         <ion-label>Votre réservation</ion-label>
       </ion-list-header>
       <ion-item >
-          <ion-text>Nom: {{booking.name}}</ion-text>
+          <ion-text>Nom: {{booking?.name}}</ion-text>
         </ion-item>
       <ion-item >
         <ion-text>Email: {{booking.email}}</ion-text>
@@ -17,7 +17,7 @@
       <ion-item *ngIf="booking.comments">
             <ion-text>Commentaires: {{booking.comments}}</ion-text>
       </ion-item>
-      <ion-item>
+      <ion-item *ngIf="booking.booking_start_date">
         <ion-text>Du {{booking.booking_start_date.format('DD MMM YYYY')}} Au {{booking.booking_end_date ? booking.booking_end_date.format('DD MMM YYYY'): 
             booking.booking_start_date.format('DD MMM YYYY')}}</ion-text>
       </ion-item>

@@ -102,6 +102,24 @@ export class BookingsService {
       'Something bad happened; please try again later.');
   }
 
+  private toMoment(booking: Booking): Booking {
+    return {
+      ...booking,
+      booking_end_date: moment(booking.booking_end_date),
+      booking_start_date: moment(booking.booking_start_date),
+      created_at: moment(booking.created_at),
+      updated_at: moment(booking.updated_at)
+    };
+  }
+
+  getByReference(reference: string): Promise<Booking> {
+    return this.http.get<Booking>(`${environment.apiUri}/bookings/` + reference, httpOptions)
+    .pipe(
+      filter(data => !!data),
+      map(this.toMoment)
+    ).toPromise();
+  }
+
   getAll(): Observable<Array<Booking>> {
     return this.http.get<Array<Booking>>(`${environment.apiUri}/bookings`, httpOptions)
     .pipe(
@@ -117,6 +135,14 @@ export class BookingsService {
       })),
       catchError(this.handleError)
     );
+  }
+
+  delete(id: number): Promise<Booking> {
+    return this.http.delete(`${environment.apiUri}/bookings/` + id, httpOptions)
+    .pipe(
+      map(this.toMoment)
+    )
+    .toPromise();
   }
 
   book(): Observable<Booking> {

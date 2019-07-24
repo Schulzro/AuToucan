@@ -35,7 +35,6 @@ const routes: Routes = [
     CalendarComponent,
     ProfileformbookingComponent,
     ContactformbookingComponent,
-    RecapBookingComponent,
     BookingSuccessComponent,
   ],
   providers: []

@@ -1,39 +1,51 @@
 <ion-grid no-padding class="grid ion-margin-bottom">
-    <ion-row class="full-height">
-      <ion-col class="menu-column vertical-align" size-sm="1">
-        <ion-menu-button size="large"></ion-menu-button>
-      </ion-col>
-      <ion-col size="12" size-md="7" class="photo-column vertical-align" no-padding>
-        <ion-menu-button color="light" size="large" class="mobile-menu-button-position ion-float-left"></ion-menu-button>
-        <div id="photo-column-picture">
-          <img src="../../assets/Anse_Rouge_AS.jpeg" alt="">
-        </div>
-      </ion-col>
-      <ion-col size="12" size-md="4">
-        <ion-row>
-          <ion-col class="ion-justify-content-end ion-align-items-center display-logo">
-            <ion-text>Le Toucan</ion-text>
-            <div id="logo-wrap">
-              <img src="../../assets/toucan.PNG" alt="Au Toucan">
-            </div>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col class="ion-text-center">
-            <p>Bonjour</p>
-            <p>Entrez votre réference de réservation pour continuer s'il vous plait</p>
-            <div class="reference-input">
-                <ion-input placeholder="Réference" [(ngModel)]="reference" required></ion-input>
-            </div>
-            <ion-button [disabled]="!reference">OK</ion-button>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col class="ion-text-center">
-            <p>La réference de réservation vous a été envoyé par mail lors de votre réservation</p>
-          </ion-col>
-        </ion-row>
-        
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <ion-row class="full-height">
+    <ion-col class="menu-column vertical-align" size-sm="1">
+      <ion-menu-button size="large"></ion-menu-button>
+    </ion-col>
+    <ion-col size="12" size-md="7" class="photo-column vertical-align" no-padding>
+      <ion-menu-button color="light" size="large" class="mobile-menu-button-position ion-float-left"></ion-menu-button>
+      <div id="photo-column-picture">
+        <img src="../../assets/Anse_Rouge_AS.jpeg" alt="">
+      </div>
+    </ion-col>
+    <ion-col size="12" size-md="4">
+      <ion-row>
+        <ion-col class="ion-justify-content-end ion-align-items-center display-logo">
+          <ion-text>Le Toucan</ion-text>
+          <div id="logo-wrap">
+            <img src="../../assets/toucan.PNG" alt="Au Toucan">
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-text-center" *ngIf="!myBooking">
+          <div class="danger-message" *ngIf="searchBookingFailure">
+            <ion-text color="danger"> Une erreur est survenue avec votre réservation. Veuillez réessayer.</ion-text>
+          </div>
+          <p>Bonjour</p>
+          <p>Entrez votre réference de réservation pour continuer s'il vous plait</p>
+          <div class="reference-input">
+            <ion-input placeholder="Réference" [(ngModel)]="reference" required></ion-input>
+          </div>
+          <ion-button [disabled]="!reference" (click)="searchBooking()">OK</ion-button>
+        </ion-col>
+        <ion-col *ngIf="!!myBooking">
+          <app-recap-booking [booking]="myBooking" class="ion-margin-top"></app-recap-booking>
+          <div class="ion-text-center">
+            <ion-button>Modifier</ion-button>
+            <ion-button color="danger" (click)="detele()">
+              <ion-icon slot="icon-only" name="trash"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="!myBooking">
+        <ion-col class="ion-text-center">
+          <p>La réference de réservation vous a été envoyé par mail lors de votre réservation</p>
+        </ion-col>
+      </ion-row>
+
+    </ion-col>
+  </ion-row>
+</ion-grid>

@@ -18,7 +18,7 @@
           </div>
         </ion-col>
       </ion-row>
-      <ion-slides pager="false" [options]="slideOpts" #bookingSlider>
+      <ion-slides pager="false" #bookingSlider>
         <ion-slide class="slide-flex-prop">
           <app-calendar class="calendar" [bookings]="bookings" (canBook)="onBook($event)"></app-calendar>
           <div class="validation">
@@ -50,7 +50,7 @@
           <div class="danger-message" *ngIf="bookingFailure">
             <ion-text color="danger"> Une erreur est survenue avec votre réservation. Veuillez réessayer.</ion-text>
           </div>
-          <app-recap-booking class="slide-component-width ion-margin-top"></app-recap-booking>
+          <app-recap-booking [booking]="booking" class="slide-component-width ion-margin-top"></app-recap-booking>
           <div>
               <ion-button fill="outline" class="ion-margin-right" (click)="swipeLeft()">PREV</ion-button>
               <ion-button (click)="book()">Réserver</ion-button>
