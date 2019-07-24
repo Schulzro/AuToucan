@@ -10,7 +10,6 @@ import { CalendarSelectDayDirective } from '../directives/calendar-select-day.di
 import { CalendarComponent } from '../components/calendar/calendar.component';
 import { ProfileformbookingComponent } from '../components/profileformbooking/profileformbooking.component';
 import { ContactformbookingComponent } from '../contactformbooking/contactformbooking.component';
-import { RecapBookingComponent } from '../components/recap-booking/recap-booking.component';
 import { BookingSuccessComponent } from '../components/booking-success/booking-success.component';
 
 const routes: Routes = [
