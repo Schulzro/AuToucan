@@ -1,7 +1,8 @@
 import {
   Component,
   OnInit,
-  ViewChild
+  ViewChild,
+  AfterViewInit
 } from '@angular/core';
 import { BookingsService } from '../services/bookings.service';
 import { Booking } from '../models/booking.model';
@@ -15,7 +16,6 @@ import { Router } from '@angular/router';
 })
 export class BookPage implements OnInit {
 
-
   bookings: Booking[] = [];
   canBook = true;
   bookingFailure = false;
@@ -23,8 +23,6 @@ export class BookPage implements OnInit {
   booking: Booking;
 
   @ViewChild('bookingSlider') bookingSlider: IonSlides;
-
-
 
   constructor(
     private bookingService: BookingsService, 
@@ -63,7 +61,14 @@ export class BookPage implements OnInit {
   }
 
   goToHomePage() {
-    this.router.navigate(['/home']).then(() => this.bookingSlider.slideTo(0));
+    this.router.navigate(['/home']).then(() => {
+      this.bookingService.emptyBooking();
+      this.bookingSlider.lockSwipes(false);
+      this.bookingSlider.slideTo(0)
+      .then(() => {
+        this.bookingSlider.lockSwipes(true);
+      });
+    });
   }
 
   async getBookings(): Promise<void | Booking[]> {

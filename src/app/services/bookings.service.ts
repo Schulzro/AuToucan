@@ -13,26 +13,28 @@ const httpOptions = {
   })
 };
 
+const bookingInit: Booking = {
+  id: null,
+  booking_start_date: null,
+  booking_end_date:  null,
+  name: '',
+  email: '',
+  phone_number: '',
+  comments: '',
+  number_of_persons: 0,
+  booking_amount: 0,
+  created_at:  null,
+  updated_at:  null,
+  reference: null
+};
+
 @Injectable({
   providedIn: 'root'
 })
 export class BookingsService {
 
   // observable sources
-  private _booking = new BehaviorSubject<Booking>({
-    id: null,
-    booking_start_date: null,
-    booking_end_date:  null,
-    name: '',
-    email: '',
-    phone_number: '',
-    comments: '',
-    number_of_persons: 0,
-    booking_amount: 0,
-    created_at:  null,
-    updated_at:  null,
-    reference: null
-  });
+  private _booking = new BehaviorSubject<Booking>(bookingInit);
   private _bookingStart = new Subject<moment.Moment>();
   private _bookingEnd = new Subject<moment.Moment>();
   private _name = new BehaviorSubject<string>('');
@@ -110,6 +112,10 @@ export class BookingsService {
       created_at: moment(booking.created_at),
       updated_at: moment(booking.updated_at)
     };
+  }
+
+  emptyBooking() {
+    this._booking.next(bookingInit);
   }
 
   getByReference(reference: string): Promise<Booking> {
