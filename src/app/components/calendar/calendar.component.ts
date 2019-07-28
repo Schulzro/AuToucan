@@ -1,23 +1,29 @@
-import { Component, OnInit, Input, ElementRef, Output, ViewChildren, QueryList, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, Output, ViewChildren, QueryList, EventEmitter, OnDestroy } from '@angular/core';
 import * as moment from 'moment';
 import { Booking } from 'src/app/models/booking.model';
 import { CalendarService } from 'src/app/services/calendar.service';
 import { BookingsService } from 'src/app/services/bookings.service';
+import { Observable } from 'rxjs/internal/Observable';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss'],
 })
-export class CalendarComponent implements OnInit {
+export class CalendarComponent implements OnInit, OnDestroy {
 
   private _bookings: Booking[] = [];
+  private resetSub: Subscription;
+
+  @Input() reset: Observable<void>;
 
   @Input()
   set bookings(bookings: Booking[]) {
     this._bookings = bookings || [];
     this.initializeCalendarView();
   }
+  
 
   get bookings(): Booking[] {
     return this._bookings;
@@ -39,9 +45,20 @@ export class CalendarComponent implements OnInit {
   highlightedCalendarDays: ElementRef<any>[] = [];
   days: moment.Moment[] = [];
 
-  constructor(private calendarService: CalendarService, private bookingService: BookingsService) { }
+  constructor(private calendarService: CalendarService, private bookingService: BookingsService) {
+   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.resetSub = this.reset.subscribe(() => {
+      this.booking_start_date = null;
+      this.booking_end_date = null;
+      this.initializeCalendarView();
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.resetSub.unsubscribe();
+  }
 
   futureMonth(): void {
     if (this.monthNumber === 11) {

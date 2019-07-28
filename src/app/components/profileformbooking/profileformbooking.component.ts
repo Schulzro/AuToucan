@@ -1,25 +1,41 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, ViewChild } from '@angular/core';
 import { PickerController } from '@ionic/angular';
 import { PickerOptions } from '@ionic/core';
 import { BookingsService } from 'src/app/services/bookings.service';
+import { Observable, Subscription } from 'rxjs';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-profileformbooking',
   templateUrl: './profileformbooking.component.html',
   styleUrls: ['./profileformbooking.component.scss'],
 })
-export class ProfileformbookingComponent implements OnInit {
+export class ProfileformbookingComponent implements OnInit, OnDestroy {
+  
+  @Input() reset: Observable<void>;
+  private resetSub: Subscription;
+  @ViewChild('profileForm') profileForm: NgForm;
 
   model = {
     name: '',
     comments: '',
     number_of_persons: null
   };
- 
 
   constructor(private pickerCtrl: PickerController, private bookingService: BookingsService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.resetSub = this.reset.subscribe(() => {
+      this.model.name = '';
+      this.model.comments = '';
+      this.model.number_of_persons = null;
+      this.profileForm.reset();
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.resetSub.unsubscribe();
+  }
 
   saveName() {
     this.bookingService.name = this.model.name;
@@ -56,7 +72,7 @@ export class ProfileformbookingComponent implements OnInit {
     };
     const picker = await this.pickerCtrl.create(opts);
     picker.present();
-    picker.onDidDismiss().then(async data => {
+    picker.onDidDismiss().then(async () => {
       const col = await picker.getColumn('number_of_persons');
       this.model.number_of_persons = col.options[col.selectedIndex].value;
       this.bookingService.number_of_persons = this.model.number_of_persons;
