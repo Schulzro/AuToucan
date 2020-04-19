@@ -183,7 +183,7 @@
           "configurations": {
             "ci": {
               "devServerTarget": "app:serve:ci"
-            }, 
+            },
             "test": {
               "devServerTarget": "app:serve:test"
             }
@@ -202,7 +202,8 @@
     }
   },
   "cli": {
-    "defaultCollection": "@ionic/angular-toolkit"
+    "defaultCollection": "@ionic/angular-toolkit",
+    "analytics": "65739b3c-d74d-40ea-b3d7-e87ad9139358"
   },
   "schematics": {
     "@ionic/angular-toolkit:component": {
