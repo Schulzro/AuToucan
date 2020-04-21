@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {trigger, state, style, animate, transition, keyframes } from '@angular/animations';
-import { setClassMetadata } from '@angular/core/src/render3';
-import { NONE_TYPE } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-home',
