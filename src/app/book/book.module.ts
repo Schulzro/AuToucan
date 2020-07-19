@@ -9,8 +9,7 @@ import { CalendarStartDirective } from '../directives/calendar-start.directive';
 import { CalendarSelectDayDirective } from '../directives/calendar-select-day.directive';
 import { CalendarComponent } from '../components/calendar/calendar.component';
 import { ProfileformbookingComponent } from '../components/profileformbooking/profileformbooking.component';
-import { ContactformbookingComponent } from '../contactformbooking/contactformbooking.component';
-import { RecapBookingComponent } from '../components/recap-booking/recap-booking.component';
+import { ContactformbookingComponent } from '../components/contactformbooking/contactformbooking.component';
 import { BookingSuccessComponent } from '../components/booking-success/booking-success.component';
 
 const routes: Routes = [
@@ -35,7 +34,6 @@ const routes: Routes = [
     CalendarComponent,
     ProfileformbookingComponent,
     ContactformbookingComponent,
-    RecapBookingComponent,
     BookingSuccessComponent,
   ],
   providers: []

@@ -49,12 +49,6 @@
   padding-right: 16px;
 }
 
-.danger-message {
-  background-color: #fcd1d1;
-  padding-top: 0.3em;
-  padding-bottom: 0.3em;
-}
-
 .slide-flex-prop {
   display: flex;
   flex-direction: column;
@@ -70,7 +64,6 @@
 
 .validation {
   width: 100%;
-  margin-bottom: 2em;
 }
 
 .slide-component-width {
@@ -85,7 +78,8 @@
   .photo-column {
     display: flex;
     background-image: url("../../assets/port.jpeg");
-    height: 30%;
+    height: auto;
+    max-height: 30%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -105,5 +99,21 @@
 
   .display-logo {
     display: none;
+  }
+}
+
+@media screen and (max-height: 505px) {
+  .photo-column {
+    background-image: none;
+    background-color: var(--ion-color-primary);
+    max-height: 50px;
+    min-height: none;
+  }
+
+  .mobile-menu-button-position {
+    display: block;
+    position: relative;
+    top: 0%;
+    left: 5%;
   }
 }

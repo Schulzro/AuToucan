@@ -1,0 +1,17 @@
+<form #contactForm="ngForm">
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Contact</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label position="stacked">Votre Email <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-input type="mail" name="email" [(ngModel)]="email" (ionBlur)="saveEmail()" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Votre Numero de Téléphone <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-input type="tel" name="tel" [(ngModel)]="tel" (ionBlur)="saveTel()" required></ion-input>
+    </ion-item>
+  </ion-list>
+</form>

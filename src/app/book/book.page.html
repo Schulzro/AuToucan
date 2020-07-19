@@ -6,7 +6,7 @@
     <ion-col size="12" size-md="7" class="photo-column vertical-align" no-padding>
       <ion-menu-button color="light" size="large" class="mobile-menu-button-position ion-float-left"></ion-menu-button>
       <div>
-        <img id="photo-column-picture" src="../../assets/Anse_Rouge_AS.jpeg" alt="">
+        <img id="photo-column-picture" src="assets/Anse_Rouge_AS.jpeg" alt="">
       </div>
     </ion-col>
     <ion-col size="12" size-md="4">
@@ -14,13 +14,13 @@
         <ion-col class="ion-justify-content-end ion-align-items-center display-logo">
           <ion-text>Le Toucan</ion-text>
           <div id="logo-wrap">
-            <img src="../../assets/toucan.PNG" alt="Au Toucan">
+            <img src="assets/toucan.PNG" alt="Au Toucan">
           </div>
         </ion-col>
       </ion-row>
-      <ion-slides pager="false" [options]="slideOpts" #bookingSlider>
+      <ion-slides pager="false" #bookingSlider>
         <ion-slide class="slide-flex-prop">
-          <app-calendar class="calendar" [bookings]="bookings" (canBook)="onBook($event)"></app-calendar>
+          <app-calendar class="calendar" [bookings]="bookings" [reset]="resetSubject.asObservable()" (canBook)="onBook($event)"></app-calendar>
           <div class="validation">
             <ion-button *ngIf="canBook;else notAvailableMessage" [disabled]="!(booking.booking_start_date || booking.booking_end_date)"
               id="validationButton" (click)="swipeRight()">SUIV</ion-button>
@@ -33,14 +33,14 @@
           </div>
         </ion-slide>
         <ion-slide class="slide-flex-prop">
-          <app-profileformbooking class="slide-component-width ion-margin-top"></app-profileformbooking>
+          <app-profileformbooking class="slide-component-width ion-margin-top" [reset]="resetSubject.asObservable()"></app-profileformbooking>
           <div>
               <ion-button fill="outline" class="ion-margin-right" (click)="swipeLeft()">PREV</ion-button>
               <ion-button class="suiv-margin-left" [disabled]="!(booking.name && booking.number_of_persons)" (click)="swipeRight()">SUIV</ion-button>
           </div>
         </ion-slide>
         <ion-slide class="slide-flex-prop">
-            <app-contactformbooking class="slide-component-width ion-margin-top"></app-contactformbooking>  
+            <app-contactformbooking class="slide-component-width ion-margin-top" [reset]="resetSubject.asObservable()"></app-contactformbooking>  
           <div>
               <ion-button fill="outline" class="ion-margin-right" (click)="swipeLeft()">PREV</ion-button>
               <ion-button class="suiv-margin-left" [disabled]="!(booking.phone_number && booking.email)" (click)="swipeRight()">SUIV</ion-button>
@@ -50,7 +50,7 @@
           <div class="danger-message" *ngIf="bookingFailure">
             <ion-text color="danger"> Une erreur est survenue avec votre réservation. Veuillez réessayer.</ion-text>
           </div>
-          <app-recap-booking class="slide-component-width ion-margin-top"></app-recap-booking>
+          <app-recap-booking [booking]="booking" class="slide-component-width ion-margin-top"></app-recap-booking>
           <div>
               <ion-button fill="outline" class="ion-margin-right" (click)="swipeLeft()">PREV</ion-button>
               <ion-button (click)="book()">Réserver</ion-button>

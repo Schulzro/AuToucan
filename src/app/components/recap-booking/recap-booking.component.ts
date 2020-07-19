@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Booking } from 'src/app/models/booking.model';
 import { BookingsService } from 'src/app/services/bookings.service';
 
@@ -7,14 +7,11 @@ import { BookingsService } from 'src/app/services/bookings.service';
   templateUrl: './recap-booking.component.html',
   styleUrls: ['./recap-booking.component.scss'],
 })
-export class RecapBookingComponent implements OnInit {
+export class RecapBookingComponent {
 
+  @Input()
   booking: Booking;
 
   constructor(private bookingService: BookingsService) { }
-
-  ngOnInit() {
-    this.bookingService.booking$.subscribe(booking => this.booking = booking);
-  }
 
 }
